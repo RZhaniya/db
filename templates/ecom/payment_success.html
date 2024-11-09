@@ -1,0 +1,56 @@
+{% include "ecom/customer_navbar.html" %}
+<style media="screen">
+	p {
+		font-size: 20px;
+		margin-top: 20px;
+    text-align: center;
+	}
+
+	.btn-view-orders {
+		display: inline-block;
+		background-color: #00b33c;
+		color: #ffffff;
+		padding: 10px 20px;
+		font-size: 16px;
+		border-radius: 5px;
+		margin-top: 30px;
+		margin-right: 20px;
+		text-decoration: none;
+		transition: background-color 0.3s;
+	}
+
+	.btn-view-orders:hover {
+		background-color: #00802b;
+		color: #ffffff;
+		transition: background-color 0.3s;
+	}
+
+	.btn-shop {
+		display: inline-block;
+		background-color: #ffffff;
+		color: #00b33c;
+		padding: 10px 20px;
+		font-size: 16px;
+		border-radius: 5px;
+		margin-top: 30px;
+		text-decoration: none;
+		border: 2px solid #00b33c;
+		transition: background-color 0.3s, color 0.3s;
+	}
+
+	.btn-shop:hover {
+		background-color: #00b33c;
+		color: #ffffff;
+		transition: background-color 0.3s, color 0.3s;
+	}
+</style>
+<body>
+	<div class="container">
+		<h2 style = "text-align: center;">Төлем сәтті өтті!</h2>
+		<p>Біз сіздің төлемдеріңізді алғанымызды хабарлауға қуаныштымыз</p>
+    <div style="text-align: center;">
+      <a href="/my-order" class="btn-view-orders" style="display: inline-block;">Тапсырыстарды қарау</a>
+      <a href="/customer-home" class="btn-shop" style="display: inline-block;">Дүкенге баруды жалғастырыңыз</a>
+    </div>
+</body>
+

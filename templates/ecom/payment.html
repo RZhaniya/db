@@ -1,0 +1,76 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+
+</head>
+<style media="screen">
+
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.panel-body{
+    padding-bottom: 0px;
+}
+</style>
+<br><br>
+<marquee scrolldelay="50">БҰЛ ЖАЛҒАН ТӨЛЕМ БЕТІ. БІЗ СІЗДІҢ ДЕРЕКТЕРІҢІЗДІ САҚТАМАЙМЫЗ</marquee>
+<marquee scrolldelay="50">ЖАЙ ҒАНА КӨРСЕТУ ҮШІН</marquee>
+<br><br>
+<div class="container" style="text-align:center; padding-left:350px;">
+    <div class="row">
+        <div class="col-xs-12 col-md-4" style=" width:500px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="position: relative; right: -47px;">
+                        Төлем деректемелері
+                    </h3>
+                    <div class="checkbox pull-right">
+                        <label>
+                            <input type="checkbox" />
+                            Есте сақтау
+                        </label>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form role="form" method="post">
+                    <div class="form-group">
+                        <label for="cardNumber">КАРТА НӨМІРІ</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                required autofocus />
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-7 col-md-7">
+                            <div class="form-group">
+                                <label for="expityMonth" style="position: relative; bottom: 0px; right: 10px;" >ЖАРАМДЫЛЫҚ МЕРЗІМІ</label>
+                                <div class="col-xs-6 col-lg-6 pl-ziro">
+                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required style="position: relative; bottom: 0px; right: -97px;" />
+                                
+                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required style="position: relative; bottom: 34px;" /></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 col-md-5 pull-right">
+                            <div class="form-group">
+                                <label for="cvCode">ТҮЙІНДЕМЕ КОДЫ</label>
+                                <input type="password" class="form-control" id="cvCode" placeholder="CVV" required />
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#" style="background-color: #a100ff;"><span class="badge pull-right">{{total}}</span>Соңғы төлем</a>
+                </li>
+            </ul>
+            <br/>
+            <a href="/payment-success" class="btn btn-primary btn-lg btn-block" role="button">Төлеу</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

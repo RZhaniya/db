@@ -1,0 +1,49 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ product.product_image.url }}" alt="{{ product.name }}" class="img-fluid product-image">
+        </div>
+        <div class="col-md-6 product-info">
+            <h1>{{ product.name }}</h1>
+            <p>Өндіруші: {{ product.manufacturer }}</p>
+            <p>{{ product.description }}</p>
+            <p>Категориясы: {{ product.get_category_display }}</p>
+            <p>Құрамы: {{ product.structure }}</p>
+            <p>Бағасы: {{ product.price }}</p>
+            <form method="post" action="{% url 'add-to-cart' product.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Себетке қосу</button>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    .product-image {
+        max-height: 500px;
+        object-fit: cover;
+    }
+    .product-info {
+        padding: 50px;
+        background-color: #f2f2f2;
+    }
+    .product-info h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    .product-info h4 {
+        font-size: 1.5rem;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    .product-info p {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    .product-info button {
+        margin-top: 20px;
+    }
+</style>
+{% endblock content %}

@@ -1,0 +1,86 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+{% block content %}
+
+
+<style media="screen">
+  body {
+    background-color:#aeebeb;
+  }
+  .container1 {
+    max-width: 800px;
+    margin: 15px auto;
+    text-align: center;
+  }
+  .profile-pic {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+  }
+  .name {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #0057a8;
+  }
+  .location {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #0057a8;
+  }
+  .contact {
+    font-size: 18px;
+    color: #0057a8;
+    margin-bottom: 20px;
+  }
+  .button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #574ed6;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 20px 0;
+  }
+  .button:hover {
+    background-color: #428bca;
+  }
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  .button:hover span {
+    padding-right: 25px;
+  }
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+</style>
+<div class="container1">
+  <img src="{% static customer.profile_pic.url %}" alt="profile pic" class="profile-pic">
+  <div class="name">{{request.user}}</div>
+  <div class="name">{{customer.get_name}}</div>
+  <div class="location"><i class="glyphicon glyphicon-map-marker"></i>{{customer.address}} </div>
+  <div class="contact"><i class="glyphicon glyphicon-phone"></i> {{customer.mobile}}</div>
+  <a href="/edit-profile"><button class="button"><span>Профильді өңдеу</span></button></a>
+</div>
+{% endblock content %}

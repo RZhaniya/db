@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Тіркелу</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body { background-color: #f1f1f1; font-family: Arial, sans-serif; }
+      .container { }
+      .card { background-color: #fff; border-radius: 10px; box-shadow: 0px 0px 20px #d9d9d9; padding: 20px; margin-top: 50px; margin-bottom: 50px; }
+      h1 { text-align: center; font-size: 2rem; margin-bottom: 20px; color: #333; }
+      p { text-align: center; font-size: 1.2rem; margin-bottom: 20px; color: #666; }
+      input[type="submit"] { background-color: #6c63ff; color: #fff; border: none; border-radius: 5px; padding: 10px 20px; font-size: 1.2rem; cursor: pointer; margin-top: 20px; transition: all 0.3s ease; }
+      input[type="submit"]:hover { background-color: #524bd1; }
+      label { margin-top: 10px; color: #666; font-size: 1.2rem; }
+      input[type="text"], input[type="password"] { border-radius: 5px; border: 1px solid #d9d9d9; padding: 10px; width: 100%; margin-top: 5px; }
+      .error-message { color: red; font-size: 0.9rem; margin-top: 5px; }
+    </style>
+  </head>
+  <body>
+    {% include "ecom/navbar.html" %}
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card">
+              <form class="box" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h1>ТІРКЕЛУ</h1>
+                <p class="text-muted">Тіркелгі жасау үшін деректеріңізді енгізіңіз!</p>
+                
+                {% render_field userForm.first_name class="form-control" placeholder="Аты" %}
+                {% if userForm.first_name.errors %}
+                  <div class="error-message">{{ userForm.first_name.errors.0 }}</div>
+                {% endif %}
+                
+                {% render_field userForm.last_name class="form-control" placeholder="Тегі" %}
+                {% if userForm.last_name.errors %}
+                  <div class="error-message">{{ userForm.last_name.errors.0 }}</div>
+                {% endif %}
+                
+                {% render_field userForm.username class="form-control" placeholder="Пайдаланушы аты" %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+
+                {% if userForm.username.errors %}
+                  <div class="error-message">{{ userForm.username.errors.0 }}</div>
+                {% endif %}
+                
+                {% render_field userForm.password class="form-control" placeholder="Құпия сөз" %}
+                {% if errors %}
+                  <div class="error-message">{{ errors }}</div>
+                {% endif %}
+                
+                {% render_field customerForm.address class="form-control" placeholder="Мекен-жайы" %}
+                {% if customerForm.address.errors %}
+                  <div class="error-message">{{ customerForm.address.errors.0 }}</div>
+                {% endif %}
+                
+                {% render_field customerForm.mobile class="form-control" placeholder="Ұялы телефон" %}
+                {% if customerForm.mobile.errors %}
+                  <div class="error-message">{{ customerForm.mobile.errors.0 }}</div>
+                {% endif %}
+                
+                {% render_field customerForm.profile_pic class="form-control" placeholder="Профиль суреті" %}
+                {% if customerForm.profile_pic.errors %}
+                  <div class="error-message">{{ customerForm.profile_pic.errors.0 }}</div>
+                {% endif %}
+                
+                <input type="submit" name="" value="Жасау">
+              </form>
+            </div>
+        </div>
+    </div>
+  </div>
+  </body>
+</html>

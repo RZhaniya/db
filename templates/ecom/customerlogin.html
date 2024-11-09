@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #f1f1f1;
+        font-family: Arial, sans-serif;
+      }
+      .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #d9d9d9;
+        padding: 20px;
+        margin-top: 50px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .text-muted {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #666;
+      }
+      .form-control {
+        border-radius: 20px;
+        border: none;
+        background-color: #f5f5f5;
+        padding: 20px;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        color: #333;
+      }
+      input[type="submit"] {
+        background-color: #428bca;
+        color: #fff;
+        border-radius: 20px;
+        border: none;
+        padding: 10px 30px;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #574ed6;
+      }
+      .navbar-button {
+        padding: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "ecom/navbar.html" %}
+    <style>
+        .navbar-button {
+            padding: 10px 0;
+          }
+          .largenav{
+            right: 100 px;
+          }
+        </style>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <form class="box" method="post">
+              {% csrf_token %}
+              <h1>Кіру</h1>
+              <p class="text-muted">Логин мен парольді енгізіңіз!</p>
+              {% render_field form.username class="form-control" placeholder="Пайдаланушы аты" %}
+              {% render_field form.password class="form-control" placeholder="Құпия сөз" %}
+              <input type="submit" name="" value="Кіру" >
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  </body>
+</html>
